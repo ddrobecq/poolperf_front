@@ -1,0 +1,36 @@
+body{
+    background-image: url("../images/home.jpg");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    color: white;
+    text-align: center;
+    width:100%;
+    font-size:x-large;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.menu_button {
+/*    position: absolute;*/
+    margin-left: 5%;
+    margin-right: 5%;
+    width:90%;
+    line-height: 50px;
+}
+
+button{
+    display: block;
+    width: 150px;
+    line-height: 100px;
+}
+
+table td{
+    border:white 1px solid;
+}
+table {
+    width: 100%;
+}
+
+
