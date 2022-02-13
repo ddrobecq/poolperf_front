@@ -2,11 +2,10 @@
 var player1 = {playerId: 1, nbShot: 0, nbPocket: 0, nbFault: 0};
 var player2 = {playerId: 2, nbShot: 0, nbPocket: 0, nbFault: 0};
 
-function shotCount (typeShot, numPlayer)
-{
+function shotCount (typeShot, numPlayer) {
     switch (typeShot) {
         case "shot":
-            if (numPlayer == 1){
+            if (numPlayer == 1) {
                 player1.nbShot++;
                 document.querySelector("#btnPocket1").disabled = false;
                 document.querySelector("#btnFault1").disabled = false;
@@ -44,27 +43,7 @@ function shotCount (typeShot, numPlayer)
     document.getElementById ("txtFault2").innerHTML = "Nbre de fautes : " + player2.nbFault + " " + (player2.nbFault/player2.nbShot * 100).toFixed(0) + "%";
 }
 
-
-function ChangeName(numPlayer)
-{
-    console.log (numPlayer);
-    if (numPlayer == 1)
-    {
-        console.log (numPlayer);
-        Player1 = document.getElementById ("InputPlayer1").value;       
-    }
-    else
-    {
-        console.log (numPlayer);
-        Player2 = document.getElementById ("InputPlayer2").value;
-    }
- 
-    document.getElementById ("Player1").innerHTML = Player1;
-    document.getElementById ("Player2").innerHTML = Player2;
-}
-
-function sendData()
-{
+function sendData() {
     console.log ("send data : " + player1.nbShot);
 
 //    $.post("http://localhost:3000/game", { 
@@ -89,5 +68,5 @@ alert (search_params);
 if(search_params.has('titla')) {
     var name = search_params.get('title');
     alert(name);
-};       
+    };       
 }
