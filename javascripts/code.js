@@ -44,26 +44,21 @@ function shotCount (typeShot, numPlayer) {
 }
 
 function sendData() {
-    console.log ("send data : " + player1.nbShot);
+    console.log ("send data : " + JSON.stringify (player1));
+    console.log ("send data : " + JSON.stringify (player2));
 
-//    $.post("http://localhost:3000/game", { 
-      $.post("https://api.drobecq.fr/game", { 
-        playerId1: player1.playerId,
-        nbShot1: player1.nbShot,
-        nbPocket1: player1.nbPocket,
-        nbFault1: player1.nbFault,
-
-        playerId2: player2.playerId,
-        nbShot2: player2.nbShot,
-        nbPocket2: player2.nbPocket,
-        nbFault2: player2.nbFault
+    $.post("http://localhost:3000/game", { 
+//      $.post("https://api.drobecq.fr/game", { 
+        gameType: getParam ('title'),
+        player1: JSON.stringify(player1),
+        player2: JSON.stringify (player2)
     }, {},"json");
 }
 
 function getParam(strParam) {
-    var str = window.location.href;
-    var url = new URL(str);
-    var search_params = new URLSearchParams(url.search); 
+    let str = window.location.href;
+    let url = new URL(str);
+    let search_params = new URLSearchParams(url.search); 
 
     if(search_params.has(strParam)) {
         return search_params.get(strParam);
