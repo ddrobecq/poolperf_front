@@ -60,13 +60,24 @@ function sendData() {
     }, {},"json");
 }
 
-function manageparam() {
-var str = "https://waytolearnx.com/t.html?title=alex-babtise&age=25&address=paris";
-var url = new URL(str);
-var search_params = new URLSearchParams(url.search); 
-alert (search_params);
-if(search_params.has('titla')) {
-    var name = search_params.get('title');
-    alert(name);
-    };       
+function getParam(strParam) {
+    var str = window.location.href;
+    var url = new URL(str);
+    var search_params = new URLSearchParams(url.search); 
+
+    if(search_params.has(strParam)) {
+        return search_params.get(strParam);
+        };       
+    return null;
+}
+
+function setTitle (strTitle) {
+    document.title = strTitle;
+}
+
+function userGetOne () {
+    console.log ("get user info");
+    $.get ("https://api.drobecq.fr/user/1", function (data) {
+        console.log (data);
+    }, "json");
 }
