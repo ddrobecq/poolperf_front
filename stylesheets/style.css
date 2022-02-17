@@ -2,10 +2,11 @@ body{
     background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     background-position-y: center;
+    background-color: black;
     color: white;
     text-align: center;
     width:100%;
-    font-size:x-large;
+    font-size:large;
 }
 
 .wrapper {

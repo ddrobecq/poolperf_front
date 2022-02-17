@@ -1,6 +1,19 @@
 
 var player1 = {playerId: 1, nbShot: 0, nbPocket: 0, nbFault: 0};
 var player2 = {playerId: 2, nbShot: 0, nbPocket: 0, nbFault: 0};
+const ENV = setEnvironment ();
+
+function setEnvironment() {
+    let strURL = window.location.href;
+    if (strURL.includes('localhost')) {
+        var APIURL = "http://localhost:3000/";
+        return "development";
+    }
+    else {
+        var APIURL = "https://api.drobecq.fr";
+        return "production";
+    } 
+};
 
 function shotCount (typeShot, numPlayer) {
     switch (typeShot) {
@@ -44,11 +57,7 @@ function shotCount (typeShot, numPlayer) {
 }
 
 function sendData() {
-    console.log ("send data : " + JSON.stringify (player1));
-    console.log ("send data : " + JSON.stringify (player2));
-
-    $.post("http://localhost:3000/game", { 
-//      $.post("https://api.drobecq.fr/game", { 
+    $.post(APIURL + "/game", { 
         gameType: getParam ('title'),
         player1: JSON.stringify(player1),
         player2: JSON.stringify (player2)
@@ -68,11 +77,12 @@ function getParam(strParam) {
 
 function setTitle (strTitle) {
     document.title = strTitle;
+    console.log ();
 }
 
 function userGetOne () {
     console.log ("get user info");
-    $.get ("https://api.drobecq.fr/user/1", function (data) {
+    $.get (APIURL + "/user/1", function (data) {
         console.log (data);
     }, "json");
 }
