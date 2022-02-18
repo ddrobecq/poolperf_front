@@ -11,15 +11,22 @@
   <title>Pool</title>
 
 </head>
-<body onload="composePageUser()">
-    <div>
+<body>
+    <div><input type="image" height="10" width="50" id="inAvatar">Avatar</button></div>
+    <div><input type="text" id="inName" oninput="enableSave()"></div>
+    <div><button class="menu_button" id="btnSave" onclick="userSave()" disabled>Enregistrer</button></div>
+    <div>Stats</div>
     <!--
-        Image usr_avatar
-        Input avec usr_name onchange => dégrise le bouton userSave
-        Bouton userSave => PUT user/usr_id
-
         Stat min/max/moy des faults et pocket
         Graph fault et pocket
     -->
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="javascripts/config.js"></script>
+    <script src="javascripts/tools.js"></script>
+    <script src="javascripts/game.js"></script>
+    <script src="javascripts/user.js"></script>
+  
 </body>

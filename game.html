@@ -15,8 +15,8 @@
   <table> 
     <thead>
       <tr>
-        <td><button onclick="window.location.href='user.html?' + player1.playerId" id=btnUser1> #Name1 </button></td>
-        <td><button onclick="window.location.href='user.html?' + player1.playerId"id=btnUser2> #Name2 </button></td>
+        <td><button onclick="window.location.href='user.html?usr_id=' + player1.playerId" id=btnUser1> #Name1 </button></td>
+        <td><button onclick="window.location.href='user.html?usr_id=' + player2.playerId" id=btnUser2> #Name2 </button></td>
       </tr>
     </thead>
     <tbody>
@@ -48,7 +48,7 @@
   </table>
   <button class="menu_button" onclick="{
     gameSave(player1, player2);
-    //window.location.href='index.html';
+    window.location.href='index.html';
     }">Enregistrer</button>
 
   <!-- INCLUDES -->

@@ -8,9 +8,12 @@ function composePagePool () {
     setTitle (getParam ('title'));
 
     //SET USERS'S NAMES
-    document.getElementById ("btnUser1").innerHTML = userGetOne (player1.playerId).usr_name;
-    document.getElementById ("btnUser2").innerHTML = userGetOne (player2.playerId).usr_name;
-
+    $.get (APIURL + "/user/" + player1.playerId, function (data) {
+        document.getElementById ("btnUser1").innerHTML = data[0].usr_name;
+    }, "json");
+    $.get (APIURL + "/user/" + player2.playerId, function (data) {
+        document.getElementById ("btnUser2").innerHTML = data[0].usr_name;
+    }, "json");
 }
 
 /* COUNT SHOTS DURING A GAME */
