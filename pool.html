@@ -11,12 +11,12 @@
   <title>Pool</title>
 
 </head>
-<body onload="setTitle(getParam('title'))">
+<body onload="composePagePool()">
   <table> 
     <thead>
       <tr>
-        <td><button onload="getUserName(1)" id=btnUser1> #Name1 </button></td>
-        <td><button onload="getUserName(2)" id=btnUser2> #Name2 </button></td>
+        <td><button onclick="window.location.href='user.html?' + player1.playerId" id=btnUser1> #Name1 </button></td>
+        <td><button onclick="window.location.href='user.html?' + player1.playerId"id=btnUser2> #Name2 </button></td>
       </tr>
     </thead>
     <tbody>
@@ -47,14 +47,17 @@
     </tbody>
   </table>
   <button class="menu_button" onclick="{
-    sendData();
-    window.location.href='index.html';
-    }">Send Data</button>
+    gameSave(player1, player2);
+    //window.location.href='index.html';
+    }">Enregistrer</button>
 
-<!-- INCLUDES -->
+  <!-- INCLUDES -->
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script src="javascripts/code.js"></script>
+  <script src="javascripts/config.js"></script>
+  <script src="javascripts/tools.js"></script>
+  <script src="javascripts/game.js"></script>
+  <script src="javascripts/user.js"></script>
 
 </body>
 </html>

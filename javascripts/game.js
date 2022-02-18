@@ -1,20 +1,19 @@
-
 var player1 = {playerId: 1, nbShot: 0, nbPocket: 0, nbFault: 0};
 var player2 = {playerId: 2, nbShot: 0, nbPocket: 0, nbFault: 0};
-const ENV = setEnvironment ();
 
-function setEnvironment() {
-    let strURL = window.location.href;
-    if (strURL.includes('localhost')) {
-        var APIURL = "http://localhost:3000/";
-        return "development";
-    }
-    else {
-        var APIURL = "https://api.drobecq.fr";
-        return "production";
-    } 
-};
+/* CUSTOMIZE THE PAGE */
+function composePagePool () {
 
+    //SET TITLE
+    setTitle (getParam ('title'));
+
+    //SET USERS'S NAMES
+    document.getElementById ("btnUser1").innerHTML = userGetOne (player1.playerId).usr_name;
+    document.getElementById ("btnUser2").innerHTML = userGetOne (player2.playerId).usr_name;
+
+}
+
+/* COUNT SHOTS DURING A GAME */
 function shotCount (typeShot, numPlayer) {
     switch (typeShot) {
         case "shot":
@@ -56,33 +55,12 @@ function shotCount (typeShot, numPlayer) {
     document.getElementById ("txtFault2").innerHTML = "Nbre de fautes : " + player2.nbFault + " " + (player2.nbFault/player2.nbShot * 100).toFixed(0) + "%";
 }
 
-function sendData() {
+/* INSERT GAME's SCORE INTO THE DATABASE */
+function gameSave(player1, player2) {
+    console.log (player1);
     $.post(APIURL + "/game", { 
         gameType: getParam ('title'),
         player1: JSON.stringify(player1),
         player2: JSON.stringify (player2)
     }, {},"json");
-}
-
-function getParam(strParam) {
-    let str = window.location.href;
-    let url = new URL(str);
-    let search_params = new URLSearchParams(url.search); 
-
-    if(search_params.has(strParam)) {
-        return search_params.get(strParam);
-        };       
-    return null;
-}
-
-function setTitle (strTitle) {
-    document.title = strTitle;
-    console.log ();
-}
-
-function userGetOne () {
-    console.log ("get user info");
-    $.get (APIURL + "/user/1", function (data) {
-        console.log (data);
-    }, "json");
 }
