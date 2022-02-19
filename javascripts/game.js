@@ -50,12 +50,16 @@ function shotCount (typeShot, numPlayer) {
             break;
     }
 
-    document.querySelector("#btnShot1").textContent = "Coups : " + player1.nbShot;
-    document.querySelector("#btnShot2").textContent = "Coups : " + player2.nbShot;
-    document.querySelector("#btnPocket1").textContent = "Empoches : " + player1.nbPocket + " " + (player1.nbPocket/player1.nbShot * 100).toFixed(0) + "%";
-    document.querySelector("#btnPocket2").textContent = "Empoches : " + player2.nbPocket + " " + (player2.nbPocket/player2.nbShot * 100).toFixed(0) + "%";
-    document.querySelector("#btnFoul1").textContent = "Fautes : " + player1.nbFoul + " " + (player1.nbFoul/player1.nbShot * 100).toFixed(0) + "%";
-    document.querySelector("#btnFoul1").textContent = "Fautes : " + player2.nbFoul + " " + (player2.nbFoul/player2.nbShot * 100).toFixed(0) + "%";
+    if (player1.nbShot > 0) {
+        document.querySelector("#btnShot1").textContent = "Coups : " + player1.nbShot;
+        document.querySelector("#btnPocket1").textContent = "Empoches : " + player1.nbPocket + " " + (player1.nbPocket/player1.nbShot * 100).toFixed(0) + "%";
+        document.querySelector("#btnFoul1").textContent = "Fautes : " + player1.nbFoul + " " + (player1.nbFoul/player1.nbShot * 100).toFixed(0) + "%";
+    }
+    if (player2.nbShot > 0) {
+        document.querySelector("#btnShot2").textContent = "Coups : " + player2.nbShot;
+        document.querySelector("#btnPocket2").textContent = "Empoches : " + player2.nbPocket + " " + (player2.nbPocket/player2.nbShot * 100).toFixed(0) + "%";
+        document.querySelector("#btnFoul2").textContent = "Fautes : " + player2.nbFoul + " " + (player2.nbFoul/player2.nbShot * 100).toFixed(0) + "%";
+    }
 }
 
 /* INSERT GAME's SCORE INTO THE DATABASE */
