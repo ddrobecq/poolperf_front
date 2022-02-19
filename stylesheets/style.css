@@ -13,6 +13,13 @@ body{
     text-align: center;
 }
 
+.version {
+    font-size: xx-small;
+    text-align: left;
+    vertical-align: bottom;
+
+}
+
 .menu_button {
     width:90%;
     height: 50px;
