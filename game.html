@@ -11,7 +11,7 @@
   <title>Pool</title>
 
 </head>
-<body onload="composePagePool()">
+<body onload="composePageGame()">
   <table> 
     <thead>
       <tr>
@@ -21,28 +21,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><button onclick="shotCount(`shot`, 1)" id=btnShot1> Coup </button></td>
-        <td><button onclick="shotCount(`shot`, 2)" id=btnShot2> Coup </button></td>
+        <td><button onclick="shotCount(`shot`, 1)" id=btnShot1> Coups </button></td>
+        <td><button onclick="shotCount(`shot`, 2)" id=btnShot2> Coups </button></td>
       </tr>
       <tr>
-        <td><button onclick="shotCount (`pocket`, 1)" id=btnPocket1> Empochée </button></td>
-        <td><button onclick="shotCount (`pocket`, 2)" id=btnPocket2> Empochée </button></td>
+        <td><button onclick="shotCount (`pocket`, 1)" id=btnPocket1> Empoche </button></td>
+        <td><button onclick="shotCount (`pocket`, 2)" id=btnPocket2> Empoche </button></td>
       </tr>
       <tr>
-        <td><button onclick="shotCount (`fault`, 1)" id=btnFault1> Faute </button></td>
-        <td><button onclick="shotCount (`fault`, 2)" id=btnFault2> Faute </button></td>
-      </tr>
-      <tr>
-        <td><p id="txtShot1">Nbre de Coups : </p> </td>
-        <td><p id="txtShot2">Nbre de Coups : </p></td>
-      </tr>
-      <tr>
-        <td><p id="txtPocket1">Billes empochées : </p> </td>
-        <td><p id="txtPocket2">Billes empochées : </p></td>
-      </tr>
-      <tr>
-        <td><p id="txtFault1">Nbre de fautes : </p> </td>
-        <td><p id="txtFault2">Nbre de fautes : </p></td>
+        <td><button onclick="shotCount (`Foul`, 1)" id=btnFoul1> Faute </button></td>
+        <td><button onclick="shotCount (`Foul`, 2)" id=btnFoul2> Faute </button></td>
       </tr>
     </tbody>
   </table>
