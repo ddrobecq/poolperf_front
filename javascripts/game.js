@@ -5,7 +5,7 @@ var player2 = {playerId: 2, nbShot: 0, nbPocket: 0, nbFoul: 0};
 function composePageGame () {
 
     //SET TITLE
-    setTitle (getParam ('title'));
+    setTitle (getParam ('gameType'));
 
     //SET USERS'S NAMES
     $.get (APIURL + "/users/" + player1.playerId, function (data) {
@@ -66,12 +66,12 @@ function shotCount (typeShot, numPlayer) {
 function gameSave(player1, player2) {
     console.log (player1);
     $.post(APIURL + "/games", { 
-        gameType: getParam ('title'),
+        gameType: getParam ('gameType'),
         player: JSON.stringify(player1)
     }, {},"json");
     console.log (player2);
     $.post(APIURL + "/games", { 
-        gameType: getParam ('title'),
+        gameType: getParam ('gameType'),
         player: JSON.stringify (player2)
     }, {},"json");
 }

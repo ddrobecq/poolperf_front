@@ -11,29 +11,34 @@ body{
 
 .wrapper {
     text-align: center;
+    margin-top: 10%;
 }
 
 .version {
     font-size: xx-small;
     text-align: left;
-    vertical-align:bottom;
-
 }
 
 .menu_button {
     width:90%;
     height: 50px;
+    margin: 5%;
 }
 
 button{
     display: block;
     background-color:black;
     color: aliceblue;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
-    width:100%;
+    margin: 5%;
+    width: 95%;
     height: 100px;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
 
 /*table td{
@@ -41,7 +46,12 @@ button{
 }
 */
 table {
-    width: 100%;
+    width: 90%;
+    margin: 5%;
+}
+
+td {
+    width:50px;
 }
 
 

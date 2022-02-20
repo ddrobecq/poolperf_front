@@ -12,5 +12,5 @@ function getParam(strParam) {
 
 /* UPDATE THE TITLE IN THE HTML HEADER */
 function setTitle (strTitle) {
-    document.title = strTitle;
+    document.title += " " + strTitle;
 }
