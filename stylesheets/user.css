@@ -10,6 +10,9 @@ body{
    justify-content: center;
 }
 
+table{
+  font-size: x-large;
+}
 .userInfo{
   text-align: center;
 }
@@ -19,6 +22,9 @@ body{
   height:auto;
   font-size: xx-large;
   background-color:rgb(89, 114, 136);
+  text-align: center;
+  margin-top: 1%;
+  border-radius: 10px;
 }
 
 .thcenter {

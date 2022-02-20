@@ -17,9 +17,9 @@
           <div class="slides">
             <!--radio buttons start-->
             <input type="radio" name="radio-btn" id="radio1" onchange="{displayUserInfo (event.target.id);}">
-            <input type="radio" name="radio-btn" id="radio2">
-            <input type="radio" name="radio-btn" id="radio3">
-            <input type="radio" name="radio-btn" id="radio4">
+            <input type="radio" name="radio-btn" id="radio2" onchange="{displayUserInfo (event.target.id);}">
+            <input type="radio" name="radio-btn" id="radio3" onchange="{displayUserInfo (event.target.id);}">
+            <input type="radio" name="radio-btn" id="radio4" onchange="{displayUserInfo (event.target.id);}">
             <!--radio buttons end-->
             <!--slide images start-->
             <div class="slide first">
@@ -46,18 +46,18 @@
         <!--manual navigation end-->
         </div>
       </div> <!--image slider end-->
-      <div > <!-- begin User Info -->
-        <div>
+      <div > <!-- begin Selected User block -->
+        <div> <!-- begin User info -->
           <div class="userInfo">
             <input type="text" id="inName" class="userName" oninput="enableSave()"><br>
             <button class="menu_button" id="btnSave" onclick="{
               userSave();
-              history.back();
+              //history.back();
               }" disabled>Enregistrer
             </button>
           </div>
-        </div>
-        <div >
+        </div> <!-- end of User Info -->
+        <div > <!-- begin User Stat -->
           <table>
             <thead>
               <tr>
@@ -85,9 +85,9 @@
               </tr>
             </tbody>
           </table>
-        </div>
+        </div> <!-- begin User Stat -->
   
-      </div> <!--endof Selected user info -->
+      </div> <!--end of Selected user block -->
     </div>
 
     <!-- INLCUDES -->

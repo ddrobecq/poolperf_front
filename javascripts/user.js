@@ -1,39 +1,34 @@
-var player = {usr_id: 1, usr_name: "", usr_avatar: null};
+var currentPlayer = {usr_id: 1, usr_name: "", usr_avatar: null};
+var arrPlayer = [];
 
-/* GET user INFO FROM DATABASE */
-function userGetOne (usrId) {
-    let request = new XMLHttpRequest();
+/* GET LIST OF AVAILABLE USERS FROM DATABASE */
+$.get (APIURL + "/users/", function (data) {
+    arrPlayer = data;
+    console.log (arrPlayer);
+}, "json");
 
-    request.open ("GET", APIURL + "/users/" + usrId);
-    request.responseType = "json";
-    request.onload = function () {
-        //return (request.response);
-    };
-    return new Promise(resolve => {
-        request.send ();
-        res = request.response;
-        console.log (res);
-        resolve (res);
-      });
-/*
-    console.log ("get user info");
-
-    $.get (APIURL + "/user/" + usrId, function (data) {
-        element = data[0].usr_name;
-    }, "json");
-    */
-}
+window.onload = function(){
+    displayUserInfo ("radio1");
+} 
 
 /* UPDATE CHANGES TO DATABASE */
 function userSave() {
-    let strName = document.getElementById("inName").value;
-     $.ajax ({
-        method: "PUT",
-        url: APIURL + "/users/" + player.usr_id, 
-        data: {
-            usr_name: strName
-        }
-    }, {}, "json");
+    if (currentPlayer.usr_id > 0) {
+        /* UPDATE THE CURRENT PLAYER INFO */
+        let strName = document.getElementById("inName").value;
+        $.ajax ({
+            method: "PUT",
+            url: APIURL + "/users/" + currentPlayer.usr_id, 
+            data: {
+                usr_name: strName
+            }
+        }, {}, "json");
+    }
+    else{
+        /* CREATE A NEW PLAYER IN DATABASE */
+
+        /* SWITCH CURRENT PLAYER ON THE CREATED ONE */
+    }
 }
 
 /* ENABLE BUTTON TO SAVE CHANGES (IF THERE IS ANY) */
@@ -44,10 +39,10 @@ function enableSave() {
 function composePageUser (usrId) {
     /* GET USER INFO TO FULLFILL THE FORM */
     $.get (APIURL + "/users/" + usrId, function (data) {
-        player.usr_id = usrId;
-        player.usr_name = data[0].usr_name;
-        player.usr_avatar = data[0].usr_avatar;
-        document.getElementById("inName").value = player.usr_name;
+        currentPlayer.usr_id = usrId;
+        currentPlayer.usr_name = data[0].usr_name;
+        currentPlayer.usr_avatar = data[0].usr_avatar;
+        document.getElementById("inName").value = currentPlayer.usr_name;
     }, "json");
 
     /* GET USER'S AVERAGE TO FULLFILL THE TABLE */
@@ -63,7 +58,17 @@ function composePageUser (usrId) {
 
 function displayUserInfo (btnId){
     let index = btnId[btnId.length-1];
-    
-    alert (index);
-    
+    if (index <= arrPlayer.length){
+        currentPlayer.usr_id = arrPlayer[(index-1)].usr_id;
+        console.log ("compose for player " + index + " who is " + arrPlayer[(index-1)].usr_id)
+        composePageUser (arrPlayer[(index-1)].usr_id); 
+
+    } 
+    else{
+        currentPlayer.usr_id = 0;
+        currentPlayer.usr_name = "Nouveau Joueur";
+        currentPlayer.usr_avatar = null;
+        document.getElementById("inName").value = currentPlayer.usr_name;
+        console.log ("newplayer");
+    }
 };
