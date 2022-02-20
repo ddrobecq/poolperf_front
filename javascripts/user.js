@@ -60,3 +60,10 @@ function composePageUser (usrId) {
         document.getElementById("maxFoul").innerHTML = (data[0].maxFoul * 100).toFixed(0) + "%";
     }, "json");
 }
+
+function displayUserInfo (btnId){
+    let index = btnId[btnId.length-1];
+    
+    alert (index);
+    
+};

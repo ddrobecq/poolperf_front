@@ -1,0 +1,33 @@
+body{
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-color: black;
+    color: white;
+}
+
+button{
+    background-color:black;
+    color: aliceblue;
+}
+
+.menu_button {
+    width:90%;
+    height: 50px;
+    margin: 5%;
+}
+
+table {
+    width: 90%;
+    margin: 5%;
+  }
+  
+/* TO BE REMOVED
+table td{
+    border:orange 1px solid;
+}
+div{
+    border: #cccccc 1px solid;
+  }
+  
+*/
