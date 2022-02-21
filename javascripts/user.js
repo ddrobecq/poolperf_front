@@ -32,8 +32,8 @@ function userSave() {
 }
 
 /* ENABLE BUTTON TO SAVE CHANGES (IF THERE IS ANY) */
-function enableSave() {
-    document.querySelector("#btnSave").disabled = false;
+function enableSave(bValue) {
+    document.querySelector("#btnSave").disabled = !(bValue);
 }
 
 function composePageUser (usrId) {
@@ -69,6 +69,12 @@ function displayUserInfo (btnId){
         currentPlayer.usr_name = "Nouveau Joueur";
         currentPlayer.usr_avatar = null;
         document.getElementById("inName").value = currentPlayer.usr_name;
-        console.log ("newplayer");
-    }
+        document.getElementById("avgPocket").innerHTML = "";
+        document.getElementById("minPocket").innerHTML = "";
+        document.getElementById("maxPocket").innerHTML = "";
+        document.getElementById("avgFoul").innerHTML = "";
+        document.getElementById("minFoul").innerHTML = "";
+        document.getElementById("maxFoul").innerHTML = "";
+    };
+    enableSave(false);
 };
