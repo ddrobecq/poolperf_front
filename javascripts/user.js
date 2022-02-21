@@ -13,9 +13,9 @@ window.onload = function(){
 
 /* UPDATE CHANGES TO DATABASE */
 function userSave() {
+    let strName = document.getElementById("inName").value;
     if (currentPlayer.usr_id > 0) {
         /* UPDATE THE CURRENT PLAYER INFO */
-        let strName = document.getElementById("inName").value;
         $.ajax ({
             method: "PUT",
             url: APIURL + "/users/" + currentPlayer.usr_id, 
@@ -26,6 +26,13 @@ function userSave() {
     }
     else{
         /* CREATE A NEW PLAYER IN DATABASE */
+        $.ajax ({
+            method: "POST",
+            url: APIURL + "/users/", 
+            data: {
+                usr_name: strName
+            }
+        }, {}, "json");
 
         /* SWITCH CURRENT PLAYER ON THE CREATED ONE */
     }
@@ -60,7 +67,6 @@ function displayUserInfo (btnId){
     let index = btnId[btnId.length-1];
     if (index <= arrPlayer.length){
         currentPlayer.usr_id = arrPlayer[(index-1)].usr_id;
-        console.log ("compose for player " + index + " who is " + arrPlayer[(index-1)].usr_id)
         composePageUser (arrPlayer[(index-1)].usr_id); 
 
     } 
@@ -69,6 +75,11 @@ function displayUserInfo (btnId){
         currentPlayer.usr_name = "Nouveau Joueur";
         currentPlayer.usr_avatar = null;
         document.getElementById("inName").value = currentPlayer.usr_name;
-        console.log ("newplayer");
+        document.getElementById("avgPocket").innerHTML = "";
+        document.getElementById("minPocket").innerHTML = "";
+        document.getElementById("maxPocket").innerHTML = "";
+        document.getElementById("avgFoul").innerHTML = "";
+        document.getElementById("minFoul").innerHTML = "";
+        document.getElementById("maxFoul").innerHTML = "";
     }
 };
