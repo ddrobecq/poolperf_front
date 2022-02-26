@@ -66,13 +66,28 @@ function displayUserInfo (usrId) {
 
 	/* GET USER'S AVERAGE TO FULLFILL THE TABLE */
 	$.get (_APIURL + "/users/" + usrId + "/stats", function (data) {
-		document.getElementById("avgPocket").innerHTML = (data[0].avgPocket * 100).toFixed(0) + "%";
-		document.getElementById("minPocket").innerHTML = (data[0].minPocket * 100).toFixed(0) + "%";
-		document.getElementById("maxPocket").innerHTML = (data[0].maxPocket * 100).toFixed(0) + "%";
-		document.getElementById("avgFoul").innerHTML = (data[0].avgFoul * 100).toFixed(0) + "%";
-		document.getElementById("minFoul").innerHTML = (data[0].minFoul * 100).toFixed(0) + "%";
-		document.getElementById("maxFoul").innerHTML = (data[0].maxFoul * 100).toFixed(0) + "%";
+		if (data.length > 0){
+			document.getElementById("avgPocket").innerHTML = (data[0].avgPocket * 100).toFixed(0) + "%";
+			document.getElementById("minPocket").innerHTML = (data[0].minPocket * 100).toFixed(0) + "%";
+			document.getElementById("maxPocket").innerHTML = (data[0].maxPocket * 100).toFixed(0) + "%";
+			document.getElementById("avgFoul").innerHTML = (data[0].avgFoul * 100).toFixed(0) + "%";
+			document.getElementById("minFoul").innerHTML = (data[0].minFoul * 100).toFixed(0) + "%";
+			document.getElementById("maxFoul").innerHTML = (data[0].maxFoul * 100).toFixed(0) + "%";
+		}
+		else{
+			displayEmpyStat();
+		}
 	}, "json");
+}
+
+/* DISPLAY EMPTY STAT */
+function displayEmpyStat(){
+	document.getElementById("avgPocket").innerHTML = "";
+	document.getElementById("minPocket").innerHTML = "";
+	document.getElementById("maxPocket").innerHTML = "";
+	document.getElementById("avgFoul").innerHTML = "";
+	document.getElementById("minFoul").innerHTML = "";
+	document.getElementById("maxFoul").innerHTML = "";
 }
 
 /* DISPLAY EMPTY SCREE FOR NEW USER */
@@ -81,12 +96,7 @@ function displayNewUserInfo(){
 	currentPlayer.usr_name = "Nouveau Joueur";
 	currentPlayer.usr_avatar = null;
 	document.getElementById("inName").value = currentPlayer.usr_name;
-	document.getElementById("avgPocket").innerHTML = "";
-	document.getElementById("minPocket").innerHTML = "";
-	document.getElementById("maxPocket").innerHTML = "";
-	document.getElementById("avgFoul").innerHTML = "";
-	document.getElementById("minFoul").innerHTML = "";
-	document.getElementById("maxFoul").innerHTML = "";
+	displayEmpyStat();
 }
 
 /* CONERT btnID INTO index IN THE PALYER'S ARRAY */
