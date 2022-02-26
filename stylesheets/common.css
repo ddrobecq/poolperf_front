@@ -7,7 +7,7 @@ body{
 }
 
 button{
-    background-color:black;
+    background-color: black;
     color: aliceblue;
 }
 
@@ -19,7 +19,7 @@ button[disabled]{
 }
 
 .menu_button {
-    width:90%;
+    width: 90%;
     height: 50px;
     margin: 5%;
 }

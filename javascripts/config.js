@@ -1,17 +1,17 @@
-var APIURL;
-const ENV = setEnvironment ();
+var _APIURL = "";
+const _ENV = setEnvironment();
 
-console.log ("Configuration actuelle : " + ENV);
+console.log("Configuration actuelle : " + _ENV);
 
 /* CHECK IF ENVIRONMENT IS development OR production ACCORDING TO THE URL */
 function setEnvironment() {
-	let strURL = window.location.href;
-	if (strURL.includes("localhost") || (strURL.includes("127.0.0.1"))) {
-		APIURL = "http://localhost:3000";
+	var strURL = window.location.href;
+	if ((strURL.indexOf("localhost") > -1) || (strURL.indexOf("127.0.0.1") > -1)) {
+		_APIURL = "http://localhost:3000";
 		return "development";
 	}
 	else {
-		APIURL = "https://api.drobecq.fr";
+		_APIURL = "https://api.drobecq.fr";
 		return "production";
-	} 
+	}
 }

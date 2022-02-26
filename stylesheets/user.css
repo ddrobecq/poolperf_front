@@ -5,6 +5,11 @@ body{
     align-items: center;
 }
 
+.menu_button {
+  margin: 0%;
+}
+
+
 .divflex {
    display: flex;
    justify-content: center;
@@ -24,6 +29,7 @@ table{
   background-color:rgb(89, 114, 136);
   text-align: center;
   margin-top: 1%;
+  margin-bottom: 1%;
   border-radius: 10px;
 }
 

@@ -16,10 +16,10 @@
         <div class="slider">
           <div class="slides">
             <!--radio buttons start-->
-            <input type="radio" name="radio-btn" id="radio1" onchange="{displayUserInfo (event.target.id);}">
-            <input type="radio" name="radio-btn" id="radio2" onchange="{displayUserInfo (event.target.id);}">
-            <input type="radio" name="radio-btn" id="radio3" onchange="{displayUserInfo (event.target.id);}">
-            <input type="radio" name="radio-btn" id="radio4" onchange="{displayUserInfo (event.target.id);}">
+            <input type="radio" name="radio-btn" id="radio1" onchange="{composePageUser (getIndexFromButton (event.target.id));}">
+            <input type="radio" name="radio-btn" id="radio2" onchange="{composePageUser (getIndexFromButton (event.target.id));}">
+            <input type="radio" name="radio-btn" id="radio3" onchange="{composePageUser (getIndexFromButton (event.target.id));}">
+            <input type="radio" name="radio-btn" id="radio4" onchange="{composePageUser (getIndexFromButton (event.target.id));}">
             <!--radio buttons end-->
             <!--slide images start-->
             <div class="slide first">
@@ -52,10 +52,14 @@
             <input type="text" id="inName" class="userName" oninput="enableSave(true)"><br>
             <button class="menu_button" id="btnSave" onclick="{
               userSave();
-              window.refr
-              //history.back();
               }" disabled>Enregistrer
             </button>
+            <button class="menu_button" id="btnSelect" onclick="{
+              userSelect();
+              history.back();
+              }">Sélectionner
+            </button>
+
           </div>
         </div> <!-- end of User Info -->
         <div > <!-- begin User Stat -->
@@ -96,6 +100,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="javascripts/config.js"></script>
     <script src="javascripts/tools.js"></script>
+    <script src="javascripts/localdb.js"></script>
     <script src="javascripts/user.js"></script>
       
   </body>
