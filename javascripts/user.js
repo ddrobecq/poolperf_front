@@ -25,7 +25,8 @@ function userSave() {
 			method: "PUT",
 			url: _APIURL + "/users/" + currentPlayer.usr_id, 
 			data: {
-				usr_name: strName
+				usr_name: strName,
+				usr_avatar: null
 			}
 		}, {}, "json").done(function(data) {
 			console.log ("data = ", data.affectedRows);
@@ -114,4 +115,14 @@ function composePageUser (index){
 		displayNewUserInfo();
 	}
 	enableSave(false);
+}
+
+function changeUserImage(){
+	let imgAvatar = new Image();
+	imgAvatar.src = URL.createObjectURL(document.getElementById("inpImage").files[0]);
+	console.log (imgAvatar);
+	document.getElementById("img1").src = imgAvatar.src;
+	currentPlayer.usr_avatar = imgAvatar;
+	console.log (currentPlayer.usr_avatar);
+
 }

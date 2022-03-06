@@ -23,16 +23,16 @@
             <!--radio buttons end-->
             <!--slide images start-->
             <div class="slide first">
-              <img src="images/userDefault1.jpg" alt="">
+              <img id="img1" src="images/userDefault1.jpg" alt="">
             </div>
             <div class="slide">
-              <img src="images/userDefault2.jpg" alt="">
+              <img id="img2" src="images/userDefault2.jpg" alt="">
             </div>
             <div class="slide">
-              <img src="images/userDefault3.jpg" alt="">
+              <img id="img3" src="images/userDefault3.jpg" alt="">
             </div>
             <div class="slide">
-              <img src="images/userNew.jpg" alt="">
+              <img id="img4" src="images/userNew.jpg" alt="">
             </div>
             <!--slide images end-->
           </div>
@@ -59,6 +59,12 @@
               history.back();
               }">Sélectionner
             </button>
+            <button class="menu_button" id="btnImage" onclick="{
+              changeUserImage();
+//              history.back();
+              }">Changer Image
+            </button>
+            <input id="inpImage" type="file" accept="image/*" capture="user">
 
           </div>
         </div> <!-- end of User Info -->
