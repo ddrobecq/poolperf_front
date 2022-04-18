@@ -19,6 +19,7 @@ function userSelect(){
 /* UPDATE CHANGES TO DATABASE */
 function userSave() {
 	let strName = document.getElementById("inName").value;
+	console.log (currentPlayer.usr_avatar);
 	if (currentPlayer.usr_id > 0) {
 		/* UPDATE THE CURRENT PLAYER INFO */
 		$.ajax ({
@@ -26,7 +27,7 @@ function userSave() {
 			url: _APIURL + "/users/" + currentPlayer.usr_id, 
 			data: {
 				usr_name: strName,
-				usr_avatar: null
+				usr_avatar: currentPlayer.usr_avatar
 			}
 		}, {}, "json").done(function(data) {
 			console.log ("data = ", data.affectedRows);
@@ -123,6 +124,27 @@ function changeUserImage(){
 	console.log (imgAvatar);
 	document.getElementById("img1").src = imgAvatar.src;
 	currentPlayer.usr_avatar = imgAvatar;
+	
+
+// make <canvas> of the same size
+let canvas = document.createElement('canvas');
+canvas.width = imgAvatar.clientWidth;
+canvas.height = imgAvatar.clientHeight;
+
+let context = canvas.getContext('2d');
+
+// copy image to it (this method allows to cut image)
+context.drawImage(imgAvatar, 0, 0);
+// we can context.rotate(), and do many other things on canvas
+
+// toBlob is async operation, callback is called when done
+canvas.toBlob(function(blob) {
+  // blob ready, download it
+  currentPlayer.usr_avatar = blob;
+  console.log (blob);
+}, 'image/png');
+
+
 	console.log (currentPlayer.usr_avatar);
 
 }
