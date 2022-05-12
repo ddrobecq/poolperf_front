@@ -3,9 +3,14 @@ var currentPlayer = {usr_id: getParam ("usr_id"), usr_name: "", usr_avatar: null
 var arrPlayer = [];
 
 /* GET LIST OF AVAILABLE USERS FROM DATABASE */
-$.get (_APIURL + "/users/", function (data) {
+/* $.get (_APIURL + "/users/", function (data) {
 	arrPlayer = data;
 }, "json");
+*/
+$.get (_APIURL + "/users", function (data) {
+	arrPlayer = data;
+}, "json");
+
 
 window.onload = function(){
 	composePageUser (currentPlayer.usr_id);
@@ -14,6 +19,7 @@ window.onload = function(){
 /* SELECT CURRENT USER */
 function userSelect(){
 	setPlayerId (currentPlayerId, currentPlayer.usr_id);
+	alert (arrPlayer);
 }
 
 /* UPDATE CHANGES TO DATABASE */

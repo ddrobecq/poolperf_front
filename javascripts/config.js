@@ -7,11 +7,12 @@ console.log("Configuration actuelle : " + _ENV);
 function setEnvironment() {
 	var strURL = window.location.href;
 	if ((strURL.indexOf("localhost") > -1) || (strURL.indexOf("127.0.0.1") > -1)) {
-		_APIURL = "http://localhost:3000";
+		_APIURL = "https://api.billard.drobecq.fr";
+//		_APIURL = "http://localhost:3000";
 		return "development";
 	}
 	else {
-		_APIURL = "https://api.drobecq.fr";
+		_APIURL = "https://api.billard.drobecq.fr";
 		return "production";
 	}
 }
