@@ -3,12 +3,9 @@ var currentPlayer = {usr_id: getParam ("usr_id"), usr_name: "", usr_avatar: null
 var arrPlayer = [];
 
 /* GET LIST OF AVAILABLE USERS FROM DATABASE */
-/* $.get (_APIURL + "/users/", function (data) {
-	arrPlayer = data;
-}, "json");
-*/
 $.get (_APIURL + "/users", function (data) {
 	arrPlayer = data;
+	console.log ("data :" + JSON.stringify (data))
 }, "json");
 
 
@@ -25,16 +22,18 @@ function userSelect(){
 /* UPDATE CHANGES TO DATABASE */
 function userSave() {
 	let strName = document.getElementById("inName").value;
-	console.log (currentPlayer.usr_avatar);
+	var body = {
+		usr_id: 1,
+		usr_name: strName
+	};
 	if (currentPlayer.usr_id > 0) {
 		/* UPDATE THE CURRENT PLAYER INFO */
 		$.ajax ({
 			method: "PUT",
+			dataType: "json",
+			contentType: "application/json; charset=utf-8",
 			url: _APIURL + "/users/" + currentPlayer.usr_id, 
-			data: {
-				usr_name: strName,
-				usr_avatar: currentPlayer.usr_avatar
-			}
+			data: JSON.stringify(body)
 		}, {}, "json").done(function(data) {
 			console.log ("data = ", data.affectedRows);
 		});

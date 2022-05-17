@@ -65,12 +65,33 @@ function shotCount (typeShot, numPlayer) {
 
 /* INSERT GAME's SCORE INTO THE DATABASE */
 function gameSave(player1, player2) {
-	$.post(_APIURL + "/games", { 
+	let body = {
 		gameType: getParam ("gameType"),
-		player: JSON.stringify(player1)
-	}, {},"json");
-	$.post(_APIURL + "/games", { 
+		player: player1
+	};
+	let strBody = JSON.stringify (body);
+	$.ajax ({
+		method: "POST",
+		dataType: "json",
+		contentType: "application/json; charset=utf-8",
+		url: _APIURL + "/games", 
+		data: strBody
+	}, {}, "json").done(function(data) {
+		console.log ("data saved = ", data);
+	});
+
+	let body = {
 		gameType: getParam ("gameType"),
-		player: JSON.stringify (player2)
-	}, {},"json");
+		player: player2
+	};
+	let strBody = JSON.stringify (body);
+	$.ajax ({
+		method: "POST",
+		dataType: "json",
+		contentType: "application/json; charset=utf-8",
+		url: _APIURL + "/games", 
+		data: strBody
+	}, {}, "json").done(function(data) {
+		console.log ("data saved = ", data);
+	});
 }
