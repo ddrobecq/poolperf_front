@@ -80,11 +80,11 @@ function gameSave(player1, player2) {
 		console.log ("data saved = ", data);
 	});
 
-	let body = {
+	body = {
 		gameType: getParam ("gameType"),
 		player: player2
 	};
-	let strBody = JSON.stringify (body);
+	strBody = JSON.stringify (body);
 	$.ajax ({
 		method: "POST",
 		dataType: "json",
