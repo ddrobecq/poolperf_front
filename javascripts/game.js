@@ -93,6 +93,6 @@ function gameSave(player1, player2) {
 		data: strBody
 	}, {}, "json").done(function(data) {
 		console.log ("data saved = ", data);
-		alert ("bien enregistré");
 	});
+	alert ("bien enregistré");
 }
