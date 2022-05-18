@@ -32,3 +32,13 @@ function getKeyName (nId){
 		return(_PLAYER2_KEY);
 	}
 }    
+
+/* INIT */
+if (getPlayerId (1) == 0){
+	/* FIX Player by Default */
+	setPlayerId (1, 1);
+}
+if (getPlayerId (2) == 0){
+	/* FIX Player by Default */
+	setPlayerId (2, 2);
+}

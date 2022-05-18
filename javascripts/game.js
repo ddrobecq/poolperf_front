@@ -1,22 +1,6 @@
 var player1 = {playerId: getPlayerId(1), nbShot: 0, nbPocket: 0, nbFoul: 0};
 var player2 = {playerId: getPlayerId(2), nbShot: 0, nbPocket: 0, nbFoul: 0};
 
-
-/* CUSTOMIZE THE PAGE */
-function composePageGame () {
-
-	//SET TITLE
-	setTitle (getParam ("gameType"));
-
-	//SET USERS'S NAMES
-	$.get (_APIURL + "/users/" + player1.playerId, function (data) {
-		document.getElementById ("btnUser1").innerHTML = data[0].usr_name;
-	}, "json");
-	$.get (_APIURL + "/users/" + player2.playerId, function (data) {
-		document.getElementById ("btnUser2").innerHTML = data[0].usr_name;
-	}, "json");
-}
-
 /* COUNT SHOTS DURING A GAME */
 function shotCount (typeShot, numPlayer) {
 	switch (typeShot) {
@@ -63,36 +47,40 @@ function shotCount (typeShot, numPlayer) {
 	}
 }
 
-/* INSERT GAME's SCORE INTO THE DATABASE */
-function gameSave(player1, player2) {
+/* BUILD JSON BODY FOR SAVNG A GAME */
+function strGameBody (player){
 	let body = {
 		gameType: getParam ("gameType"),
-		player: player1
+		player: player
 	};
 	let strBody = JSON.stringify (body);
-	$.ajax ({
-		method: "POST",
-		dataType: "json",
-		contentType: "application/json; charset=utf-8",
-		url: _APIURL + "/games", 
-		data: strBody
-	}, {}, "json").done(function(data) {
-		console.log ("data saved = ", data);
-	});
+	return strBody;
+}
 
-	body = {
-		gameType: getParam ("gameType"),
-		player: player2
-	};
-	strBody = JSON.stringify (body);
-	$.ajax ({
-		method: "POST",
-		dataType: "json",
-		contentType: "application/json; charset=utf-8",
-		url: _APIURL + "/games", 
-		data: strBody
-	}, {}, "json").done(function(data) {
-		console.log ("data saved = ", data);
-	});
-	alert ("bien enregistré");
+/* INSERT GAME's SCORE INTO THE DATABASE */
+function gameSave(player1, player2) {
+	callAPI ("/games", "POST", strGameBody (player1)).done (function (results){
+		console.log ("Scores enregistrés pour " + body1.player.playerId);
+	});		 
+
+	callAPI ("/games", "POST", strGameBody (player2)).done (function (results){
+		console.log ("Scores enregistrés pour " +  body2.player.playerId);
+	});		 
+}
+
+/* CUSTOMIZE THE PAGE */
+function composePageGame () {
+	//SET TITLE
+	setTitle (getParam ("gameType"));
+
+	//SET USERS'S NAMES
+	let resPlayer1 = callAPI ("/users/" + player1.playerId, "GET", "");
+	resPlayer1.done (function (results){
+		document.getElementById ("btnUser1").innerHTML = results[0].usr_name;
+	});		 
+
+	let resPlayer2 = callAPI ("/users/" + player2.playerId, "GET", "");
+	resPlayer2.done (function (results){
+		document.getElementById ("btnUser2").innerHTML = results[0].usr_name;
+	});		 
 }

@@ -3,11 +3,11 @@ var currentPlayer = {usr_id: getParam ("usr_id"), usr_name: "", usr_avatar: null
 var arrPlayer = [];
 
 /* GET LIST OF AVAILABLE USERS FROM DATABASE */
-$.get (_APIURL + "/users", function (data) {
+callAPI ("/users", "GET", "").done (function (data){
 	arrPlayer = data;
 	console.log ("data :" + JSON.stringify (data))
-}, "json");
-
+	console.log ("Scores enregistrés pour " + body1.player.playerId);
+});		 
 
 window.onload = function(){
 	composePageUser (currentPlayer.usr_id);
@@ -28,31 +28,17 @@ function userSave() {
 	};
 	if (currentPlayer.usr_id > 0) {
 		/* UPDATE THE CURRENT PLAYER INFO */
-		$.ajax ({
-			method: "PUT",
-			dataType: "json",
-			contentType: "application/json; charset=utf-8",
-			url: _APIURL + "/users/" + currentPlayer.usr_id, 
-			data: JSON.stringify(body)
-		}, {}, "json").done(function(data) {
+		callAPI ("/users/" + currentPlayer.usr_id, "PUT", "").done (function (data){
 			console.log ("data = ", data.affectedRows);
 		});
 	}
 	else{
 		/* CREATE A NEW PLAYER IN DATABASE */
-		$.ajax ({
-			method: "POST",
-			url: _APIURL + "/users/", 
-			data: {
-				usr_name: strName
-			}
-		}, {}, "json")
-			.done(function(data) {
+		callAPI ("/users", "POST", JSON.stringify({usr_name: strName})).done (function (data){
 			/* SWITCH CURRENT PLAYER ON THE CREATED ONE */
-				currentPlayer.usr_id = data.insertId;
-				console.log ("New user created = ", currentPlayer.usr_id);
-			});
-
+			currentPlayer.usr_id = data.insertId;
+			console.log ("New user created = ", currentPlayer.usr_id);
+		});
 	}
 }
 
@@ -64,15 +50,15 @@ function enableSave(bValue) {
 /* DISPLAY USER INFO FROM DB */ 
 function displayUserInfo (usrId) {
 	/* GET USER INFO TO FULLFILL THE FORM */
-	$.get (_APIURL + "/users/" + usrId, function (data) {
+	callAPI ("/users/" + usrId, "GET", "").done (function (data){
 		currentPlayer.usr_id = usrId;
 		currentPlayer.usr_name = data[0].usr_name;
 		currentPlayer.usr_avatar = data[0].usr_avatar;
 		document.getElementById("inName").value = currentPlayer.usr_name;
-	}, "json");
+	});
 
 	/* GET USER'S AVERAGE TO FULLFILL THE TABLE */
-	$.get (_APIURL + "/users/" + usrId + "/stats", function (data) {
+	callAPI ("/users/" + usrId + "stats", "GET", "").done (function (data){
 		if (data.length > 0){
 			document.getElementById("avgPocket").innerHTML = (data[0].avgPocket * 100).toFixed(0) + "%";
 			document.getElementById("minPocket").innerHTML = (data[0].minPocket * 100).toFixed(0) + "%";
@@ -84,7 +70,7 @@ function displayUserInfo (usrId) {
 		else{
 			displayEmpyStat();
 		}
-	}, "json");
+	});
 }
 
 /* DISPLAY EMPTY STAT */
@@ -121,35 +107,4 @@ function composePageUser (index){
 		displayNewUserInfo();
 	}
 	enableSave(false);
-}
-
-function changeUserImage(){
-	let imgAvatar = new Image();
-	imgAvatar.src = URL.createObjectURL(document.getElementById("inpImage").files[0]);
-	console.log (imgAvatar);
-	document.getElementById("img1").src = imgAvatar.src;
-	currentPlayer.usr_avatar = imgAvatar;
-	
-
-// make <canvas> of the same size
-let canvas = document.createElement('canvas');
-canvas.width = imgAvatar.clientWidth;
-canvas.height = imgAvatar.clientHeight;
-
-let context = canvas.getContext('2d');
-
-// copy image to it (this method allows to cut image)
-context.drawImage(imgAvatar, 0, 0);
-// we can context.rotate(), and do many other things on canvas
-
-// toBlob is async operation, callback is called when done
-canvas.toBlob(function(blob) {
-  // blob ready, download it
-  currentPlayer.usr_avatar = blob;
-  console.log (blob);
-}, 'image/png');
-
-
-	console.log (currentPlayer.usr_avatar);
-
 }

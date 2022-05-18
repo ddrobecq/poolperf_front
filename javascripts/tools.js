@@ -14,3 +14,14 @@ function getParam(strParam) {
 function setTitle (strTitle) {
 	document.title += " " + strTitle;
 }
+
+/* RETURN AJAX API CALL */
+function callAPI (strPath, strMethod, strPayLoad){
+	return $.ajax ({
+		method: strMethod,
+		dataType: "json",
+		contentType: "application/json; charset=utf-8",
+		url: _APIURL + strPath, 
+		data: strPayLoad
+	});
+};
