@@ -11,102 +11,64 @@
   <title>PoolPerf</title>
 </head>
   <body>
-    <div >
-      <div class="divflex">
-        <div class="slider">
-          <div class="slides">
-            <!--radio buttons start-->
-            <input type="radio" name="radio-btn" id="radio1" onchange="{composePageUser (getIndexFromButton (event.target.id));}">
-            <input type="radio" name="radio-btn" id="radio2" onchange="{composePageUser (getIndexFromButton (event.target.id));}">
-            <input type="radio" name="radio-btn" id="radio3" onchange="{composePageUser (getIndexFromButton (event.target.id));}">
-            <input type="radio" name="radio-btn" id="radio4" onchange="{composePageUser (getIndexFromButton (event.target.id));}">
-            <!--radio buttons end-->
-            <!--slide images start-->
-            <div class="slide first">
-              <img id="img1" src="images/userDefault1.jpg" alt="">
-            </div>
-            <div class="slide">
-              <img id="img2" src="images/userDefault2.jpg" alt="">
-            </div>
-            <div class="slide">
-              <img id="img3" src="images/userDefault3.jpg" alt="">
-            </div>
-            <div class="slide">
-              <img id="img4" src="images/userNew.jpg" alt="">
-            </div>
-            <!--slide images end-->
+    <div > <!-- begin Selected User block -->
+      <div> <!-- begin User info -->
+        <div class="userInfo">
+          <div>
+            <button id="btnSelectBack" onclick="{composePageUser ('prev');}"><</button>
+            <input type="text" id="inName" class="userName" oninput="enableSave(true)">
+            <button id="btnSelectForward" onclick="{composePageUser ('next');}">></button>
           </div>
-          <!--manual navigation start-->
-          <div class="navigation-manual">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
-            <label for="radio4" class="manual-btn"></label>
-          </div>
-        <!--manual navigation end-->
+          <button class="menu_button" id="btnSave" onclick="{userSave();}" disabled>Enregistrer</button>
+          <button class="menu_button" id="btnSelect" onclick="{userSelect();}">Sélectionner</button>
         </div>
-      </div> <!--image slider end-->
-      <div > <!-- begin Selected User block -->
-        <div> <!-- begin User info -->
-          <div class="userInfo">
-            <input type="text" id="inName" class="userName" oninput="enableSave(true)"><br>
-            <button class="menu_button" id="btnSave" onclick="{
-              userSave();
-              }" disabled>Enregistrer
-            </button>
-            <button class="menu_button" id="btnSelect" onclick="{
-              userSelect();
-              }">Sélectionner
-            </button>
-          </div>
-        </div> <!-- end of User Info -->
-        <div > <!-- begin User Stat -->
-          <table>
-            <thead>
-              <tr>
-                <th colspan="4" class="thcenter">Statistiques</th>
-              </tr>
-              <tr>
-                <td></td>
-                <th>Moy</th>
-                <th>Min</th>
-                <th>Max</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>Empoches</th>
-                <td id="avgPocket">avgPocket</td>
-                <td id="minPocket">minPocket</td>
-                <td id="maxPocket">maxPocket</td>
-              </tr>
-              <tr>
-                <th>Fautes</th>
-                <td id="avgFoul">avgFoul</td>
-                <td id="minFoul">minFoul</td>
-                <td id="maxFoul">maxFoul</td>
-              </tr>
-            </tbody>
-          </table>
-        </div> <!-- end User Stat -->
-        <div > <!-- begin User chart -->
-          <table>
-            <thead>
-              <tr>
-                <th colspan="4" class="thcenter">Performances</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div> <!-- end User chart -->
-      </div> <!--end of Selected user block -->
-    </div>
+      </div> <!-- end of User Info -->
+      <div > <!-- begin User Stat -->
+        <table>
+          <thead>
+            <tr>
+              <th colspan="4" class="thcenter">Statistiques</th>
+            </tr>
+            <tr>
+              <td></td>
+              <th>Moy</th>
+              <th>Min</th>
+              <th>Max</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Empoches</th>
+              <td id="avgPocket">avgPocket</td>
+              <td id="minPocket">minPocket</td>
+              <td id="maxPocket">maxPocket</td>
+            </tr>
+            <tr>
+              <th>Fautes</th>
+              <td id="avgFoul">avgFoul</td>
+              <td id="minFoul">minFoul</td>
+              <td id="maxFoul">maxFoul</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> <!-- end User Stat -->
+      <div > <!-- begin User chart -->
+        <table>
+          <thead>
+            <tr>
+              <th colspan="4" class="thcenter">Performances</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div> <!-- end User chart -->
+    </div> <!--end of Selected user block -->
 
     <!-- INLCUDES -->
     <script src="javascripts/jquery-3.6.0.min.js"></script>

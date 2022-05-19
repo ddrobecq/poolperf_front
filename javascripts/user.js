@@ -1,15 +1,7 @@
 var currentPlayerId = Number (getParam ("playerId"));
 var currentPlayer = {usr_id: getParam ("usr_id"), usr_name: "", usr_avatar: null};
 var arrPlayer = [];
-
-/* GET LIST OF AVAILABLE USERS FROM DATABASE */
-callAPI ("/users", "GET", "").done (function (data){
-	arrPlayer = data;
-});		 
-
-window.onload = function(){
-	composePageUser (currentPlayer.usr_id);
-}; 
+var index=0;
 
 /* SELECT CURRENT USER */
 function userSelect(){
@@ -95,6 +87,7 @@ function displayEmpyStat(){
 	document.getElementById("avgFoul").innerHTML = "";
 	document.getElementById("minFoul").innerHTML = "";
 	document.getElementById("maxFoul").innerHTML = "";
+	document.getElementById("chartContainer").innerHTML = "";
 }
 
 /* DISPLAY EMPTY SCREE FOR NEW USER */
@@ -106,19 +99,35 @@ function displayNewUserInfo(){
 	displayEmpyStat();
 }
 
-/* CONERT btnID INTO index IN THE PALYER'S ARRAY */
-function getIndexFromButton (btnId){
-	return (btnId[btnId.length-1]);
-}
-
 /* DISPLAY USER INFO ACCORDING THE ID REQUESTED */
-function composePageUser (index){
-	if (index <= arrPlayer.length){
-		currentPlayer.usr_id = arrPlayer[(index-1)].usr_id;
-		displayUserInfo (arrPlayer[(index-1)].usr_id); 
-	} 
-	else{
-		displayNewUserInfo();
-	}
+function composePageUser (strDir){
+	switch (strDir){
+	case "first":
+		break;
+	case "next":
+		if (index < arrPlayer.length) index++;
+		break;
+	case "prev":
+		if (index > 0) index--;
+		break;
+	};
+	currentPlayer.usr_id = arrPlayer[(index)].usr_id;
+	displayUserInfo (arrPlayer[(index)].usr_id); 
 	enableSave(false);
 }
+
+window.onload = function(){
+	/* GET LIST OF AVAILABLE USERS FROM DATABASE */
+	callAPI ("/users", "GET", "").done (function (data){
+		arrPlayer = data;
+		let usrId = getParam ("usr_id");
+		index = 0;
+		for (let i=0;i<arrPlayer.length;i++){
+			if (arrPlayer[i].usr_id == usrId) {
+				index = i;
+				break;
+			}
+		}
+		composePageUser ('first');
+	});		 
+}; 
