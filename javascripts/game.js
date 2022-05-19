@@ -60,12 +60,15 @@ function strGameBody (player){
 /* INSERT GAME's SCORE INTO THE DATABASE */
 function gameSave(player1, player2) {
 	callAPI ("/games", "POST", strGameBody (player1)).done (function (results){
-		console.log ("Scores enregistrés pour " + body1.player.playerId);
-	});		 
-
-	callAPI ("/games", "POST", strGameBody (player2)).done (function (results){
-		console.log ("Scores enregistrés pour " +  body2.player.playerId);
-	});		 
+		if (results.affectedRows == 1) {
+			callAPI ("/games", "POST", strGameBody (player2)).done (function (results){
+				if (results.affectedRows == 1) {
+					alert ("Les statistiques ont été correctement enregistrées.");
+					window.location.href="index.html";
+				}
+			});	
+		};
+	});
 }
 
 /* CUSTOMIZE THE PAGE */
@@ -74,13 +77,11 @@ function composePageGame () {
 	setTitle (getParam ("gameType"));
 
 	//SET USERS'S NAMES
-	let resPlayer1 = callAPI ("/users/" + player1.playerId, "GET", "");
-	resPlayer1.done (function (results){
+	callAPI ("/users/" + player1.playerId, "GET", "").done (function (results){
 		document.getElementById ("btnUser1").innerHTML = results[0].usr_name;
 	});		 
 
-	let resPlayer2 = callAPI ("/users/" + player2.playerId, "GET", "");
-	resPlayer2.done (function (results){
+	callAPI ("/users/" + player2.playerId, "GET", "").done (function (results){
 		document.getElementById ("btnUser2").innerHTML = results[0].usr_name;
 	});		 
 }

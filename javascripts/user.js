@@ -5,8 +5,6 @@ var arrPlayer = [];
 /* GET LIST OF AVAILABLE USERS FROM DATABASE */
 callAPI ("/users", "GET", "").done (function (data){
 	arrPlayer = data;
-	console.log ("data :" + JSON.stringify (data))
-	console.log ("Scores enregistrés pour " + body1.player.playerId);
 });		 
 
 window.onload = function(){
@@ -16,7 +14,7 @@ window.onload = function(){
 /* SELECT CURRENT USER */
 function userSelect(){
 	setPlayerId (currentPlayerId, currentPlayer.usr_id);
-	alert (arrPlayer);
+	history.back();
 }
 
 /* UPDATE CHANGES TO DATABASE */
@@ -28,8 +26,11 @@ function userSave() {
 	};
 	if (currentPlayer.usr_id > 0) {
 		/* UPDATE THE CURRENT PLAYER INFO */
-		callAPI ("/users/" + currentPlayer.usr_id, "PUT", "").done (function (data){
-			console.log ("data = ", data.affectedRows);
+		callAPI ("/users/" + currentPlayer.usr_id, "PUT", JSON.stringify(body)).done (function (data){
+			if (data.affectedRows){
+				console.log ("Mise à jour enregistré pour ", strName);
+				enableSave(false);
+			}
 		});
 	}
 	else{
@@ -37,7 +38,8 @@ function userSave() {
 		callAPI ("/users", "POST", JSON.stringify({usr_name: strName})).done (function (data){
 			/* SWITCH CURRENT PLAYER ON THE CREATED ONE */
 			currentPlayer.usr_id = data.insertId;
-			console.log ("New user created = ", currentPlayer.usr_id);
+			console.log ("Nouveau joueur enregistré : ", strName);
+			enableSave(false);
 		});
 	}
 }
@@ -58,7 +60,7 @@ function displayUserInfo (usrId) {
 	});
 
 	/* GET USER'S AVERAGE TO FULLFILL THE TABLE */
-	callAPI ("/users/" + usrId + "stats", "GET", "").done (function (data){
+	callAPI ("/users/" + usrId + "/stats", "GET", "").done (function (data){
 		if (data.length > 0){
 			document.getElementById("avgPocket").innerHTML = (data[0].avgPocket * 100).toFixed(0) + "%";
 			document.getElementById("minPocket").innerHTML = (data[0].minPocket * 100).toFixed(0) + "%";
