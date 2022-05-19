@@ -68,11 +68,23 @@ function displayUserInfo (usrId) {
 			document.getElementById("avgFoul").innerHTML = (data[0].avgFoul * 100).toFixed(0) + "%";
 			document.getElementById("minFoul").innerHTML = (data[0].minFoul * 100).toFixed(0) + "%";
 			document.getElementById("maxFoul").innerHTML = (data[0].maxFoul * 100).toFixed(0) + "%";
+
+			/*DISPLAY CHART */
+			callAPI ("/users/" + usrId + "/games", "GET", "").done (function (data){
+				let arrPocket=new Array();
+				let arrFoul=new Array();
+				for (let i=0;i < data.length;i++){
+					arrPocket[i] = {y: Math.round(((data[i].gam_pocket/data[i].gam_shot) * 100))};
+					arrFoul[i] = {y: Math.round(((data[i].gam_foul/data[i].gam_shot) * 100))};
+				}
+				drawChart(arrPocket, arrFoul);
+			});
 		}
 		else{
 			displayEmpyStat();
 		}
 	});
+
 }
 
 /* DISPLAY EMPTY STAT */

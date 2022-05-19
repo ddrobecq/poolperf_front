@@ -4,10 +4,17 @@
     // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    {
+        "name": "Chart",
+        "request": "launch",
+        "type": "chrome",
+        "url": "http://localhost:5501/chart.html",
+        "webRoot": "${workspaceFolder}"
+    },
         {
             "type": "pwa-chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Index.html",
             "url": "http://localhost:5501/index.html",
             "webRoot": "${workspaceFolder}"
         }
