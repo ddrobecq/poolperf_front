@@ -85,3 +85,7 @@ function composePageGame () {
 		document.getElementById ("btnUser2").innerHTML = results[0].usr_name;
 	});		 
 }
+
+window.onload = function(){
+	composePageGame();
+}; 
