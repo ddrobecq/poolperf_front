@@ -15,9 +15,11 @@
       <div> <!-- begin User info -->
         <div class="userInfo">
           <div>
+            <input type="text" id="inName" class="userName" oninput="enableSave(true)">
+          </div>
+          <div>
             <button class="btnNav" id="btnSelectBack" onclick="{composePageUser ('prev');}"><img class="imgNav" src="./images/prev.png"/></button>
             <button class="btnNav" id="btnSelect" onclick="{userSelect();}"><img class="imgNav" src="./images/play.png"/></button>
-            <input type="text" id="inName" class="userName" oninput="enableSave(true)">
             <button class="btnNav" id="btnSave" onclick="{userSave();}" disabled><img class="imgNav" id="imgSave" src="./images/save.png"/></button>
             <button class="btnNav" id="btnSelectForward" onclick="{composePageUser ('next');}"><img class="imgNav" src="./images/next.png"/></button>
           </div>
