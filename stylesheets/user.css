@@ -18,7 +18,7 @@ table{
 }
 
 .userName{
-  width: 200px;
+  width: 100px;
   vertical-align: middle;
   height:60px;
   font-size: xx-large;
@@ -29,22 +29,23 @@ table{
 }
 
 .btnNav{
-  width: 55px;
-  height: 55px;
+  width: 35px;
+  height: 35px;
   vertical-align: middle;
   text-align: center;
   margin-top: 1%;
+  border: 1px solid black;
 }
 
 btnNav:disabled,
 button[disabled]{
-/*  border: 1px solid #999999;*/
   background-color: black;
+  border: 1px solid black;
 }
 
 .imgNav{
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 .thcenter {
