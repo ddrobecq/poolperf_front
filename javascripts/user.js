@@ -39,6 +39,11 @@ function userSave() {
 /* ENABLE BUTTON TO SAVE CHANGES (IF THERE IS ANY) */
 function enableSave(bValue) {
 	document.querySelector("#btnSave").disabled = !(bValue);
+	if (bValue){
+		document.querySelector("#imgSave").src = "./images/save.png";
+	} else {
+		document.querySelector("#imgSave").src = "./images/save_disabled.png";
+	}
 }
 
 /* DISPLAY USER INFO FROM DB */ 
@@ -101,18 +106,29 @@ function displayNewUserInfo(){
 
 /* DISPLAY USER INFO ACCORDING THE ID REQUESTED */
 function composePageUser (strDir){
+	let bChange=false;
+
 	switch (strDir){
 	case "first":
+		bChange = true;
 		break;
 	case "next":
-		if (index < arrPlayer.length) index++;
+		if (index < (arrPlayer.length - 1)){
+			bChange = true;
+			index++;
+		}
 		break;
 	case "prev":
-		if (index > 0) index--;
+		if (index > 0) {
+			bChange = true;
+			index--;
+		}
 		break;
 	};
-	currentPlayer.usr_id = arrPlayer[(index)].usr_id;
-	displayUserInfo (arrPlayer[(index)].usr_id); 
+	if (bChange) {
+		currentPlayer.usr_id = arrPlayer[(index)].usr_id;
+		displayUserInfo (arrPlayer[(index)].usr_id); 
+	};
 	enableSave(false);
 }
 

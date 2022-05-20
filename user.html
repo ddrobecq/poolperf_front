@@ -15,12 +15,12 @@
       <div> <!-- begin User info -->
         <div class="userInfo">
           <div>
-            <button id="btnSelectBack" onclick="{composePageUser ('prev');}"><</button>
+            <button class="btnNav" id="btnSelectBack" onclick="{composePageUser ('prev');}"><img class="imgNav" src="./images/prev.png"/></button>
+            <button class="btnNav" id="btnSelect" onclick="{userSelect();}"><img class="imgNav" src="./images/play.png"/></button>
             <input type="text" id="inName" class="userName" oninput="enableSave(true)">
-            <button id="btnSelectForward" onclick="{composePageUser ('next');}">></button>
+            <button class="btnNav" id="btnSave" onclick="{userSave();}" disabled><img class="imgNav" id="imgSave" src="./images/save.png"/></button>
+            <button class="btnNav" id="btnSelectForward" onclick="{composePageUser ('next');}"><img class="imgNav" src="./images/next.png"/></button>
           </div>
-          <button class="menu_button" id="btnSave" onclick="{userSave();}" disabled>Enregistrer</button>
-          <button class="menu_button" id="btnSelect" onclick="{userSelect();}">Sélectionner</button>
         </div>
       </div> <!-- end of User Info -->
       <div > <!-- begin User Stat -->

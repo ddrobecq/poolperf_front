@@ -12,19 +12,39 @@ body{
 table{
   font-size: x-large;
 }
+
 .userInfo{
   text-align: center;
 }
 
 .userName{
-  width: 250px;
-  height:auto;
+  width: 200px;
+  vertical-align: middle;
+  height:60px;
   font-size: xx-large;
   background-color:rgb(89, 114, 136);
   text-align: center;
   margin-top: 1%;
-  margin-bottom: 1%;
   border-radius: 10px;
+}
+
+.btnNav{
+  width: 55px;
+  height: 55px;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 1%;
+}
+
+btnNav:disabled,
+button[disabled]{
+/*  border: 1px solid #999999;*/
+  background-color: black;
+}
+
+.imgNav{
+  width: 40px;
+  height: 40px;
 }
 
 .thcenter {
