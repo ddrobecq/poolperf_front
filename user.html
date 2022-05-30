@@ -8,6 +8,7 @@
   <link rel = "stylesheet" href="stylesheets/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/common.css">
   <link rel="stylesheet" href="stylesheets/user.css">
+  <link rel="stylesheet" href="stylesheets/loader.css">
   <title>PoolPerf</title>
 </head>
   <body>
@@ -25,7 +26,7 @@
           </div>
         </div>
       </div> <!-- end of User Info -->
-      <div > <!-- begin User Stat -->
+      <div id="userStat"> <!-- begin User Stat -->
         <table>
           <thead>
             <tr>
@@ -64,7 +65,11 @@
           <tbody>
             <tr>
               <td>
-                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                <div class="container">
+                  <div class="loader" id="loader-6">
+                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                  </div>
+                </div>
               </td>
             </tr>
           </tbody>

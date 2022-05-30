@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="icon" type="image/png" href="images/icon.png">
-  <link rel = "stylesheet" href="stylesheets/bootstrap.min.css">
+
+  <link rel ="stylesheet" href="stylesheets/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/common.css">
   <link rel="stylesheet" href="stylesheets/game.css">
+  <link rel="stylesheet" href="stylesheets/loader.css">
   
   <title>PoolPerf</title>
 
@@ -18,8 +20,22 @@
     <table> 
       <thead>
         <tr>
-          <td><button onclick="window.location.href='user.html?playerId=1&usr_id=' + player1.playerId" id=btnUser1> #Name1 </button></td>
-          <td><button onclick="window.location.href='user.html?playerId=2&usr_id=' + player2.playerId" id=btnUser2> #Name2 </button></td>
+          <td>
+            <div class="container">
+              <div class="loader" id="loader-6">
+                <button onclick="window.location.href='user.html?playerId=1&usr_id=' + player1.playerId" id=btnUser1>
+                </button>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="container">
+              <div class="loader" id="loader-6">
+                <button onclick="window.location.href='user.html?playerId=2&usr_id=' + player2.playerId" id=btnUser2>
+                </button>
+              </div>
+            </div>
+          </td>
         </tr>
       </thead>
       <tbody>
@@ -39,9 +55,14 @@
     </table>
     </div>
     <div >
-      <button class="menu_button" onclick="{
-        gameSave(player1, player2);
-        }">Enregistrer</button>
+      <div class="container">
+        <div class="loader" id="loader-6">
+          <button class="menu_button" id="btnSave" onclick="{
+            gameSave(player1, player2);
+            }">Enregistrer
+          </button>
+        </div>
+      </div>
     </div>
   </div>
   <!-- INCLUDES -->

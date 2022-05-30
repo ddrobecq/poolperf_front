@@ -10,6 +10,16 @@ function getParam(strParam) {
 	return null;
 }
 
+/* SET HTML Code FOR ACTVATE LOADER */
+function setLoader(){
+	let htmlLoader = "\
+	<span></span\>\
+	<span></span\>\
+	<span></span\>\
+	<span></span\>";
+	return htmlLoader;
+}
+
 /* UPDATE THE TITLE IN THE HTML HEADER */
 function setTitle (strTitle) {
 	document.title += " " + strTitle;

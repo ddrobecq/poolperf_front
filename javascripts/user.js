@@ -48,6 +48,11 @@ function enableSave(bValue) {
 
 /* DISPLAY USER INFO FROM DB */ 
 function displayUserInfo (usrId) {
+
+	console.log (setLoader());
+	document.getElementById("chartContainer").innerHTML = setLoader();
+	//document.getElementById("userStat").innerHTML = setLoader();
+
 	/* GET USER INFO TO FULLFILL THE FORM */
 	callAPI ("/users/" + usrId, "GET", "").done (function (data){
 		currentPlayer.usr_id = usrId;
