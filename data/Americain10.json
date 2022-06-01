@@ -1,0 +1,60 @@
+{
+    "title" : "Règle du Billard Américain : Jeu de la 10",
+    "paragraphs":
+    [
+        {
+            "text" : "Le jeu de la 10 est joué avec la bille blanche et dix billes-objets numérotées de 1 à 10 jouées dans l’ordre croissant. La bille numéro 10 est celle dont l’empoche permet le gain de la partie. Le but du jeu est donc d’empocher la bille 10 par n’importe quel coup légal."
+        },
+        {
+            "text" : "Les billes sont disposées de la façon suivante : dans un triangle équilatéral ou Magic Ball Rack™ avec la bille numéro 1 placée au sommet du triangle sur le point de replacement. Les rangs de billes derrière le sommet du triangle sont parallèles à la petite bande inférieure de la table. La bille numéro 10 est placée au milieu du rang de trois billes. Les billes restantes sont placées de façon aléatoire."
+        },
+        {
+            "text" : "Le gagnant du tirage à la bande choisit lequel des deux joueurs cassera le premier. Le joueur à la casse commence avec bille en main derrière la ligne de départ. La blanche doit toucher la bille objet numéro 1 avant de contacter toute autre bille sous peine de commettre une faute. Au moins quatre billes-objets doivent contacter une ou plusieurs bandes sous peine de casse illégale constitutive d’une faute. Si une bille est empochée, le joueur poursuit sa reprise. S’il n’empoche aucune bille ou commet une faute, la reprise s’achève. Si la casse est invalide ou s’il y a faute à la casse, le joueur adverse bénéficie d’une bille en main."
+        },
+        {
+            "text" : "Les billes-objets autres que la 10 éjectées à la casse hors de la surface de la table ne sont pas remises en jeu. Si la 10 est éjectée, elle est replacée sur le point de replacement."
+        },
+        {
+            "text" : "Si la 10 est empochée lors d’une casse légale et que le joueur a annoncé son empochage, le joueur remporte la partie. Si une faute est commise à la casse et que la 10 est empochée celle-ci est replacée sur le point de replacement."
+        },
+        {
+            "text" : "Lors d’un push out, la blanche n’a pas à toucher la bille-objet numériquement la moins élevée ni même à toucher une quelconque bille. Il n’est pas nécessaire qu’une bille touche une bande. Toutes les autres règles sont en application."
+        },
+        {
+            "text" : "Lors du premier coup après une casse valide, le joueur qui a la main a le choix de jouer un push out."
+        },
+        {
+            "text" : "Toute bille-objet empochée lors d’un push out, exceptée la 10, reste empochée. Si la 10 est empochée, elle est replacée sur le point de replacement."
+        },
+        {
+            "text" : "Le joueur désirant procéder à un push out doit le préciser clairement et préalablement à son adversaire. Ce dernier doit connaître l’intention du joueur avant que celui-ci ne puisse jouer le push out."
+        },
+        {
+            "text" : "Après un push out valide, la reprise du joueur s’achève. L’adversaire peut-alors : accepter la table dans cette configuration et jouer, demander au joueur auteur du push out de revenir à la table et de jouer."
+        },
+        {
+            "text" : "Il n’est pas possible de jouer un push out si le joueur a bille en main après la casse."
+        },
+        {
+            "text" : "Après la casse (et, s’il y a lieu, après un push out), le jeu se poursuit selon les règles suivantes : la bille numériquement la plus faible sur la table doit être la première bille-objet contactée par la blanche sous peine de commettre une faute. Si le joueur empoche régulièrement une bille. La reprise se poursuit. la bille numérotée 10 est replacée sur le point de replacement si elle est empochée suite à un coup irrégulier ou si elle est éjectée hors des limites de la table. Les autres billes éjectées ou irrégulièrement empochées ne sont pas remises en jeu."
+        },
+        {
+            "text" : "À chaque fois qu’un joueur tente d’empocher une bille (excepté lors de la casse), il doit annoncer son coup, la bille jouée ainsi que la poche choisie si elles ne sont pas évidentes. Les détails du coup, comme les bandes touchées ou les autres billes carambolées ou empochées ne sont pas nécessaires. Pour qu’un coup annoncé soit valable, l’adversaire ou un arbitre doit être en mesure de déterminer si le coup effectivement réalisé était bien celui tenté. En cas de possibles confusions, comme des empoches en bande, combinaisons, carambolages ou coups similaires, le joueur doit indiquer la bille-objet et la poche. L’adversaire et/ou un arbitre peu(ven)t demander un contrôle visuel de la phase de jeu litigieuse dans le cas où ils douteraient de la faisabilité du coup tenté."
+        },
+        {
+            "text" : "Si le joueur empoche la bille numériquement la plus faible sans l’annoncer dans le cas d’un coup où l’annonce doit être faite (coup non-évident), la main passe et son adversaire a le choix de jouer le coup suivant ou de redonner la main au joueur précédent."
+        },
+        {
+            "text" : "Durant sa reprise, le joueur doit continuer à jouer aussi longtemps qu’il empoche régulièrement à chaque coup une bille. S’il n’empoche pas régulièrement de bille ou s’il commet une faute, sa reprise s’achève et son adversaire doit revenir à la table pour jouer."
+        },
+        {
+            "text" : "La partie est gagnée par le joueur qui empoche régulièrement la bille numéro 10."
+        },
+        {
+            "text" : "Si le joueur à la table commet une faute, la main passe à son adversaire. Ce dernier dispose d’une bille en main qu’il peut disposer sur l’ensemble de la surface de jeu."
+        },
+        {
+            "text" : "Si un joueur commet trois fautes consécutivement lors d’une même manche, il perd la manche. Après la deuxième faute consécutive, l’adversaire ou un arbitre doit avertir le joueur fautif qu’il a déjà commis deux fautes. Cette notification doit être non-équivoque et intelligible pour le joueur concerné."
+        }
+]
+}

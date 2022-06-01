@@ -1,0 +1,24 @@
+{
+    "title" : "Règle du Billard Américain : Jeu de la 8",
+    "paragraphs":
+    [
+        {
+            "text" : "Le jeu de la 8 se joue avec la bille blanche et les billes numérotées de 1 à 15."
+        },
+        {
+            "text" : "Le joueur doit toujours toucher en premier une bille de son groupe, soit les pleines, soit les cerclées (si le joueur cassant le triangle empoche une bille, il peut conserver le groupe auquel appartient cette bille ou choisir l’autre groupe en empochant obligatoirement une bille de ce groupe)."
+        },
+        {
+            "text" : "Si le joueur cassant le triangle n’empoche pas de bille, le joueur adverse doit empocher obligatoirement une bille pour confirmer son groupe."
+        },
+        {
+            "text" : "Si le joueur empoche correctement une bille, il continue à jouer jusqu’à ce qu’il manque, commette une faute ou qu’il gagne en empochant régulièrement la bille noire numéro 8 après toutes les billes de son groupe."
+        },
+        {
+            "text" : "Après une faute, l’adversaire a bille en main et il peut placer la blanche où il le souhaite sur la surface de jeu."
+        },
+        {
+            "text" : "Le vainqueur de la partie est celui qui empoche la bille 8 régulièrement."
+        }
+    ]
+}

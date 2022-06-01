@@ -1,0 +1,15 @@
+{
+    "title" : "Règle du Snooker",
+    "paragraphs":
+    [
+        {
+            "text" : "Le snooker se joue avec la bille blanche, 15 billes rouges et 6 billes de couleurs différentes. Chaque joueur doit réaliser la plus grande série de points possible en alternant bille rouge et bille de couleur différente."
+        },
+        {
+            "text" : "Les billes rouges valent un point 1 point, les autres billes valent un certain nombre de points selon leur couleur : Jaune = 2 points - Verte = 3 points - Marron = 4 points - Bleue = 5 points - Rose = 6 points - Noire = 7 points."
+        },
+        {
+            "text" : "Une fois empochées, les billes rouges restent dans leur poche. Les autres billes sont replacées sur leur point d’origine jusqu’à ce que toutes les billes rouges aient été empochées. Après la dernière bille rouge entrée, il y a obligation d'empocher les billes de couleur par ordre croissant de leur valeur numérique. Le vainqueur sera celui qui a le plus de points en fin de partie."
+        }
+    ]
+}

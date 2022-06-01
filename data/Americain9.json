@@ -1,0 +1,18 @@
+{
+    "title" : "Règle du Billard Américain : Jeu de la 9",
+    "paragraphs":
+    [
+        {
+            "text" : "Le jeu de la 9 se joue avec la bille blanche et les billes numérotées de 1 à 9."
+        },
+        {
+            "text" : "Le joueur doit toujours toucher en premier la bille avec le plus petit numéro encore présente sur la table, mais les billes ne doivent pas être empochées obligatoirement par ordre numérique."
+        },
+        {
+            "text" : "Si le joueur empoche correctement une bille, il continue à jouer jusqu’à ce qu’il manque, commette une faute ou qu’il gagne en empochant la 9."
+        },
+        {
+            "text" : "Après une faute, l’adversaire a bille en main et il peut placer la blanche n’importe où sur la surface de jeu. Le vainqueur de la partie est celui qui empoche la bille 9 sans faute."
+        }
+    ]
+}

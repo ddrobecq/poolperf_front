@@ -1,0 +1,12 @@
+.rules{
+    text-align: justify;
+    background-color:darkcyan;
+    color:aliceblue;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: -100%;
+    margin-top: 5%;
+    display:none;
+    padding: 2%;
+    border-radius: 10px;
+}

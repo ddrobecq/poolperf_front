@@ -1,0 +1,15 @@
+{
+    "title" : "Règle du Billard Pyramide",
+    "paragraphs":
+    [
+        {
+            "text" : "Sur la table de billard sont posées 16 billes, dont 15 billes blanches et une bille noire. Alors, le jeu commence. Le triangle formé avec les billes blanches doit être cassé à l’aide de la bille noire. Le but du jeu est d’utiliser n’importe quelle bille de choc pour toucher une autre bille et l’empocher. Il est également possible de viser une autre bille afin d’empocher la première bille."
+        },
+        {
+            "text" : "Chaque bille empochée rapporte un point. Ces points sont notés et additionnés à la fin du jeu."
+        },
+        {
+            "text" : "Pour toute faute d'un joueur, une bille déjà empochée de celui-ci est remise en jeu."
+        }
+    ]
+}

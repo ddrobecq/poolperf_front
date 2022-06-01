@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="stylesheets/common.css">
   <link rel="stylesheet" href="stylesheets/game.css">
   <link rel="stylesheet" href="stylesheets/loader.css">
+  <link rel="stylesheet" href="stylesheets/rules.css">
   
   <title>PoolPerf</title>
 
@@ -17,6 +18,8 @@
 <body>
   <div >
     <div >
+      <div class="rules" id="rules">
+    </div>
     <table> 
       <thead>
         <tr>
@@ -53,6 +56,16 @@
         </tr>
       </tbody>
     </table>
+    </div>
+    <div>
+      <div class="container">
+        <div class="loader" id="loader-6">
+          <button class="menu_button" id="btnRules" onclick="{
+            showRules();
+            }">Règles
+          </button>
+        </div>
+      </div>
     </div>
     <div >
       <div class="container">

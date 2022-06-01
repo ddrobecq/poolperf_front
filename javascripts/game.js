@@ -94,3 +94,46 @@ function composePageGame () {
 window.onload = function(){
 	composePageGame();
 }; 
+
+function showRules (){
+	let sGameType = getParam ("gameType");
+	//get the rules from JSON files
+	let requestURL = '../data/' + sGameType + '.json';
+	let request = new XMLHttpRequest();
+	request.open('GET', requestURL);
+	request.responseType = 'json';
+	request.send();
+	request.onload = function() {
+		//create the HTML content from the JSON
+		let popup = document.getElementById("rules");
+		popup.innerHTML = "";
+		let rulesTitle = document.createElement ('t1');
+		var JSONcontent = request.response;
+		if (JSONcontent){
+			rulesTitle.textContent = JSONcontent.title;		
+			popup.append (rulesTitle);
+			let rulesContent;
+			if ("paragraphs" in JSONcontent){
+				for (i = 0 ; i < JSONcontent.paragraphs.length ; i++){
+					rulesContent = document.createElement ('p');
+					rulesContent.textContent = JSONcontent.paragraphs[i].text;	
+					popup.append (rulesContent);
+				};
+			};
+		}
+		else console.error ("Impossible de retrouver les règles pour "+ requestURL);
+		let btnRulesClose = document.createElement ('button');
+		btnRulesClose.className = "menu_button";
+		btnRulesClose.setAttribute ('onclick', 'hideRules()');
+		btnRulesClose.textContent = "Fermer";
+		popup.append (btnRulesClose);
+
+		//display the HTML
+		popup.style.display = "block";	
+	};
+}
+
+function hideRules (){
+	let popup = document.getElementById("rules");
+	popup.style.display = "none";	
+}

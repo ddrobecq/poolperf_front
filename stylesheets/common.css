@@ -20,8 +20,9 @@ button[disabled]{
 
 .menu_button {
     width: 90%;
-    height: 50px;
+    height: 40px;
     margin: 5%;
+    margin-top: 1%;
 }
 
 table {

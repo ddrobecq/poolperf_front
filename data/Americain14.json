@@ -1,0 +1,21 @@
+{
+    "title" : "Règle du Billard Améicain : Le 14/1 continue",
+    "paragraphs":
+    [
+        {
+            "text" : "Le jeu du 14/1 continu se joue avec la bille blanche et les billes numérotées de 1 à 15."
+        },
+        {
+            "text" : "Le joueur doit empocher le plus de billes possible à chaque tour de jeu, quel que soit leur numéro. A chaque fois, le joueur doit désigner la bille et la poche dans laquelle elle sera empochée. Chaque bille vaut un point."
+        },
+        {
+            "text" : "Si le joueur empoche correctement une bille, il continue à jouer jusqu’à ce qu’il manque, commette une faute ou qu’il gagne en atteignant un quota de points fixé à l’avance."
+        },
+        {
+            "text" : "Lorsqu’il ne reste qu’une bille à empocher, on reforme le triangle sans la dernière bille, le principe étant alors d’empocher la bille isolée, puis avec la bille blanche venir casser le triangle afin de pouvoir rentrer d’autres billes et continuer la série. Ceci n’est pas obligatoire, le joueur peut toucher une bille du triangle plutôt que la bille isolée."
+        },
+        {
+            "text" : "Le vainqueur de la partie est celui qui atteint son quota de points."
+        }
+    ]
+}

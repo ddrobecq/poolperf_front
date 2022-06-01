@@ -1,0 +1,21 @@
+{
+    "title" : "Règle du Blackball",
+    "paragraphs":
+    [
+        {
+            "text" : "Le blackball se joue avec la bille blanche, les 7 billes rouges, les 7 billes jaunes et la bille noire."
+        },
+        {
+            "text" : "Le joueur qui casse choisit son groupe (rouge ou jaune) s’il empoche au moins une bille lors de la casse et qu'il le valide en en empochant le coup suivant une bille du groupe choisi (il a le droit, pour ce coup uniquement, de passer par une bille de l'autre groupe pour empocher la sienne)."
+        },
+        {
+            "text" : "Au long de la partie, il doit ensuite toujours toucher en premier une bille de son groupe. Si un joueur empoche correctement une bille, il continue à jouer jusqu’à ce qu’il manque, commette une faute ou qu’il gagne en empochant la 8 après toutes les billes de son groupe."
+        },
+        {
+            "text" : "Après une faute, l’adversaire a le choix entre prendre 'bille en main' : il doit placer la bille blanche derrière la ligne de départ, et tirer en avant ou en arrière (la 'bille en main' est obligatoire lorsque la blanche est empochée), ou laisser la blanche à sa place et prendre la main, avec deux coups (un seul s'il empoche une bille de son groupe sur le premier coup). Dans ce cas-là, il peut jouer une bille adverse en premier coup sans qu'il soit considéré fautif."
+        },
+        {
+            "text" : "Le vainqueur de la partie est celui qui empoche régulièrement la bille noire numérotée 8."
+        }
+    ]
+}
