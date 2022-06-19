@@ -27,11 +27,30 @@ function setTitle (strTitle) {
 
 /* RETURN AJAX API CALL */
 function callAPI (strPath, strMethod, strPayLoad){
-	return $.ajax ({
-		method: strMethod,
-		dataType: "json",
-		contentType: "application/json; charset=utf-8",
-		url: _APIURL + strPath, 
-		data: strPayLoad
-	});
+	return new Promise((resolve, reject) => {
+		let xhr = new XMLHttpRequest();
+		xhr.open(strMethod, _APIURL + strPath);
+		xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+		xhr.responseType = "json";
+		xhr.onload = function() {
+			if (this.status === 200) {
+				//console.log ("received : ", strMethod, strPath);
+				//console.log ("returned : ", this.response);
+				resolve(this.response);
+			} else {
+				reject({
+					status: this.status,
+					statusText: xhr.statusText
+				});
+			}
+		};
+		xhr.onerror = function() {
+			reject({
+				status: this.status,
+				statusText: xhr.statusText
+			});
+		};
+		xhr.send(strPayLoad);
+	}
+	);
 };

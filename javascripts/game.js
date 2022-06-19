@@ -60,9 +60,9 @@ function strGameBody (player){
 /* INSERT GAME's SCORE INTO THE DATABASE */
 function gameSave(player1, player2) {
 	document.getElementById ("btnSave").innerHTML = setLoader();
-	callAPI ("/games", "POST", strGameBody (player1)).done (function (results){
+	callAPI ("/games", "POST", strGameBody (player1)).then (function (results){
 		if (results.affectedRows == 1) {
-			callAPI ("/games", "POST", strGameBody (player2)).done (function (results){
+			callAPI ("/games", "POST", strGameBody (player2)).then (function (results){
 				if (results.affectedRows == 1) {
 					document.getElementById ("btnSave").innerHTML = "Enregistrer";
 					window.location.href="index.html";
@@ -81,11 +81,11 @@ function composePageGame () {
 	document.getElementById ("btnUser2").innerHTML = setLoader();
 
 	//SET USERS'S NAMES
-	callAPI ("/users/" + player1.playerId, "GET", "").done (function (results){
+	callAPI ("/users/" + player1.playerId, "GET", "").then (function (results){
 		document.getElementById ("btnUser1").innerHTML = results[0].usr_name;
 	});		 
 
-	callAPI ("/users/" + player2.playerId, "GET", "").done (function (results){
+	callAPI ("/users/" + player2.playerId, "GET", "").then (function (results){
 		document.getElementById ("btnUser2").innerHTML = results[0].usr_name;
 	});		 
 

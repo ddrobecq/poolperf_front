@@ -18,7 +18,7 @@ function userSave() {
 	};
 	if (currentPlayer.usr_id > 0) {
 		/* UPDATE THE CURRENT PLAYER INFO */
-		callAPI ("/users/" + currentPlayer.usr_id, "PUT", JSON.stringify(body)).done (function (data){
+		callAPI ("/users/" + currentPlayer.usr_id, "PUT", JSON.stringify(body)).then (function (data){
 			if (data.affectedRows){
 				console.log ("Mise à jour enregistré pour ", strName);
 				enableSave(false);
@@ -27,7 +27,7 @@ function userSave() {
 	}
 	else{
 		/* CREATE A NEW PLAYER IN DATABASE */
-		callAPI ("/users", "POST", JSON.stringify({usr_name: strName})).done (function (data){
+		callAPI ("/users", "POST", JSON.stringify({usr_name: strName})).then (function (data){
 			/* SWITCH CURRENT PLAYER ON THE CREATED ONE */
 			currentPlayer.usr_id = data.insertId;
 			console.log ("Nouveau joueur enregistré : ", strName);
@@ -49,12 +49,10 @@ function enableSave(bValue) {
 /* DISPLAY USER INFO FROM DB */ 
 function displayUserInfo (usrId) {
 
-	console.log (setLoader());
 	document.getElementById("chartContainer").innerHTML = setLoader();
-	//document.getElementById("userStat").innerHTML = setLoader();
 
 	/* GET USER INFO TO FULLFILL THE FORM */
-	callAPI ("/users/" + usrId, "GET", "").done (function (data){
+	callAPI ("/users/" + usrId, "GET", "").then (function (data){
 		currentPlayer.usr_id = usrId;
 		currentPlayer.usr_name = data[0].usr_name;
 		currentPlayer.usr_avatar = data[0].usr_avatar;
@@ -62,7 +60,7 @@ function displayUserInfo (usrId) {
 	});
 
 	/* GET USER'S AVERAGE TO FULLFILL THE TABLE */
-	callAPI ("/users/" + usrId + "/stats", "GET", "").done (function (data){
+	callAPI ("/users/" + usrId + "/stats", "GET", "").then (function (data){
 		if (data.length > 0){
 			document.getElementById("avgPocket").innerHTML = (data[0].avgPocket * 100).toFixed(0) + "%";
 			document.getElementById("minPocket").innerHTML = (data[0].minPocket * 100).toFixed(0) + "%";
@@ -72,7 +70,7 @@ function displayUserInfo (usrId) {
 			document.getElementById("maxFoul").innerHTML = (data[0].maxFoul * 100).toFixed(0) + "%";
 
 			/*DISPLAY CHART */
-			callAPI ("/users/" + usrId + "/games", "GET", "").done (function (data){
+			callAPI ("/users/" + usrId + "/games", "GET", "").then (function (data){
 				let arrPocket=new Array();
 				let arrFoul=new Array();
 				for (let i=0;i < data.length;i++){
@@ -139,7 +137,7 @@ function composePageUser (strDir){
 
 window.onload = function(){
 	/* GET LIST OF AVAILABLE USERS FROM DATABASE */
-	callAPI ("/users", "GET", "").done (function (data){
+	callAPI ("/users", "GET", "").then (function (data){
 		arrPlayer = data;
 		let usrId = getParam ("usr_id");
 		index = 0;
